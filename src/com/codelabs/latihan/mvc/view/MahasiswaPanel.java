@@ -14,6 +14,7 @@ import com.codelabs.latihan.mvc.controller.MahasiswaController;
 import com.codelabs.latihan.mvc.entities.MahasiswaEntity;
 import com.codelabs.latihan.mvc.listener.MahasiswaListener;
 import com.codelabs.latihan.mvc.model.MahasiswaModel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -22,19 +23,19 @@ import javax.swing.JTextField;
  * @author hendri
  */
 public class MahasiswaPanel extends javax.swing.JPanel implements MahasiswaListener {
-    
+
     private MahasiswaModel model;
     private MahasiswaController controller;
 
     /** Creates new form MahasiswaPanel */
     public MahasiswaPanel() {
         initComponents();
-        
+
         model = new MahasiswaModel();
         controller = new MahasiswaController();
         model.setListener(this);
         controller.setModel(model);
-        
+
     }
 
     /** This method is called from within the constructor to
@@ -150,30 +151,30 @@ public class MahasiswaPanel extends javax.swing.JPanel implements MahasiswaListe
     public JTextArea getTextAreaAlamat() {
         return textAreaAlamat;
     }
-    
+
     public JTextField getTextNama() {
         return textNama;
     }
-    
+
     public JTextField getTextNim() {
         return textNim;
     }
-    
+
 private void buttonInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInsertActionPerformed
 // TODO add your handling code here:
     controller.prosesInsert(this);
 }//GEN-LAST:event_buttonInsertActionPerformed
-    
+
 private void buttonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateActionPerformed
 // TODO add your handling code here:
     controller.prosesUpdate(this);
 }//GEN-LAST:event_buttonUpdateActionPerformed
-    
+
 private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
 // TODO add your handling code here:
     controller.prosesDelete(this);
 }//GEN-LAST:event_buttonDeleteActionPerformed
-    
+
 private void buttonCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariActionPerformed
 // TODO add your handling code here:
     controller.prosesCari(this);
@@ -198,25 +199,29 @@ private void buttonCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         textNama.setText(mahasiswa.getNama());
         textAreaAlamat.setText(mahasiswa.getAlamat());
     }
-    
+
     @Override
     public void updateMahasiswa(MahasiswaEntity mahasiswa) {
         textNim.setText(mahasiswa.getNim());
         textNama.setText(mahasiswa.getNama());
         textAreaAlamat.setText(mahasiswa.getAlamat());
     }
-    
+
     @Override
     public void deleteMahasiswa(MahasiswaEntity mahasiswa) {
         textNim.setText(mahasiswa.getNim());
         textNama.setText(mahasiswa.getNama());
         textAreaAlamat.setText(mahasiswa.getAlamat());
     }
-    
+
     @Override
     public void cariMahasiswa(MahasiswaEntity mahasiswa) {
-        textNim.setText(mahasiswa.getNim());
-        textNama.setText(mahasiswa.getNama());
-        textAreaAlamat.setText(mahasiswa.getAlamat());
+        if (mahasiswa == null) {
+            JOptionPane.showMessageDialog(null, "Maaf Nim yang anda cari tidak ditemukan..");
+        } else {
+            textNim.setText(mahasiswa.getNim());
+            textNama.setText(mahasiswa.getNama());
+            textAreaAlamat.setText(mahasiswa.getAlamat());
+        }
     }
 }

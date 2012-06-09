@@ -28,22 +28,19 @@ public class MahasiswaController {
         if (nim.equals("")) {
             JOptionPane.showMessageDialog(null, "maaf nim masih kosong");
 
-        }
-
-        if (nama.equals("")) {
+        } else if (nama.equals("")) {
             JOptionPane.showMessageDialog(null, "maaf nama masih kosong");
 
-        }
-        if (alamat.equals("")) {
+        } else if (alamat.equals("")) {
             JOptionPane.showMessageDialog(null, "maaf alamat masih kosong");
 
+        } else {
+
+            model.setNim(nim);
+            model.setNama(nama);
+            model.setAlamat(alamat);
+            model.insertData();
         }
-
-        model.setNim(nim);
-        model.setNama(nama);
-        model.setAlamat(alamat);
-        model.insertData();
-
     }
 
     public void prosesUpdate(MahasiswaPanel view) {
@@ -55,22 +52,19 @@ public class MahasiswaController {
         if (nim.equals("")) {
             JOptionPane.showMessageDialog(null, "maaf nim masih kosong");
 
-        }
-
-        if (nama.equals("")) {
+        } else if (nama.equals("")) {
             JOptionPane.showMessageDialog(null, "maaf nama masih kosong");
 
-        }
-        if (alamat.equals("")) {
+        } else if (alamat.equals("")) {
             JOptionPane.showMessageDialog(null, "maaf alamat masih kosong");
 
+        } else {
+
+            model.setNim(nim);
+            model.setNama(nama);
+            model.setAlamat(alamat);
+            model.updateData();
         }
-
-        model.setNim(nim);
-        model.setNama(nama);
-        model.setAlamat(alamat);
-        model.updateData();
-
     }
 
     public void prosesDelete(MahasiswaPanel view) {
@@ -81,21 +75,19 @@ public class MahasiswaController {
         if (nim.equals("")) {
             JOptionPane.showMessageDialog(null, "maaf nim masih kosong");
 
+        } else if (nama.equals("")) {
+            JOptionPane.showMessageDialog(null, "maaf nama masih kosong, data belum valid");
+
+        } else if (alamat.equals("")) {
+            JOptionPane.showMessageDialog(null, "maaf alamat masih kosong, data belum valid");
+
+        } else {
+
+            model.setNim(nim);
+            model.setNama(nama);
+            model.setAlamat(alamat);
+            model.deleteData();
         }
-
-        if (nama.equals("")) {
-            JOptionPane.showMessageDialog(null, "maaf nama masih kosong");
-
-        }
-        if (alamat.equals("")) {
-            JOptionPane.showMessageDialog(null, "maaf alamat masih kosong");
-
-        }
-
-        model.setNim(nim);
-        model.setNama(nama);
-        model.setAlamat(alamat);
-        model.deleteData();
 
     }
 
@@ -104,10 +96,11 @@ public class MahasiswaController {
 
         if (nim.equals("")) {
             JOptionPane.showMessageDialog(null, "maaf nim masih kosong");
-        }
+        } else {
 
-        model.setNim(nim);
-        model.cariData();
+            model.setNim(nim);
+            model.cariData();
+        }
 
     }
 }
