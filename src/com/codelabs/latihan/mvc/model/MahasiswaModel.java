@@ -21,6 +21,7 @@ public class MahasiswaModel {
     private MahasiswaDao dao;
 
     public MahasiswaModel() {
+        
 
         if (dao == null) {
             dao = new MahasiswaDao();
@@ -88,6 +89,7 @@ public class MahasiswaModel {
         mahasiswa.setNim(this.nim);
 
         mahasiswa = dao.cariData(mahasiswa);
+       
         fireOnCari(mahasiswa);
 
     }
