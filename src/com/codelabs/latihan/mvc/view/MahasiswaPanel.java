@@ -30,8 +30,7 @@ public class MahasiswaPanel extends javax.swing.JPanel implements MahasiswaListe
     /** Creates new form MahasiswaPanel */
     public MahasiswaPanel() {
         initComponents();
-        System.out.println("Hello World");
-
+        
         model = new MahasiswaModel();
         controller = new MahasiswaController();
         
